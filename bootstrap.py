@@ -231,7 +231,7 @@ def register_systems(org_name, activationkey, release):
     else:
         org_label = return_matching_katello_key('organizations', 'name="%s"' % org_name, 'label', False)
     print_generic("Calling subscription-manager")
-    options.smargs += " --serverurl=https://%s:%s/rhsm --baseurl=https://%s/pulp/repos" % (options.foreman_fqdn, API_PORT, options.foreman_fqdn)
+    #options.smargs += " --serverurl=https://%s:%s/rhsm --baseurl=https://%s/pulp/repos" % (options.foreman_fqdn, API_PORT, options.foreman_fqdn)
     if options.force:
         options.smargs += " --force"
     exec_failexit("/usr/sbin/subscription-manager register --org '%s' --name '%s' --activationkey '%s' %s" % (org_label, FQDN, activationkey, options.smargs))
